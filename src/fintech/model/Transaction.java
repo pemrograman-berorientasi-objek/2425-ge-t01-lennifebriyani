@@ -4,28 +4,45 @@ package fintech.model;
  * @autor 12S23023 Lenni Febriyani 
  * @autor 12S23045 Chintya Regina Uli Rajagukguk 
  */  
-public class Transaction { 
-    private String type; 
-    private double amount; 
- 
-    public Transaction(String type, double amount) { 
-        this.type = type; 
-        this.amount = amount; 
-    }  
- 
-    public String getType() { 
-        return type; 
-    } 
- 
-    public double getAmount() { 
-        return amount; 
-    } 
- 
-    @Override 
-    public String toString() { 
-        return "Transaction{" + 
-                "type='" + type + '\'' + 
-                ", amount=" + amount + 
-                '}'; 
-    } 
-}  
+
+public class Transaction {
+    private static int idCounter = 0;
+    private int id;
+    private String accountName;
+    private double amount;
+    private String postedAt;
+    private String note;
+
+    public Transaction(String accountName, double amount, String postedAt, String note) {
+        this.id = ++idCounter;
+        this.accountName = accountName;
+        this.amount = amount;
+        this.postedAt = postedAt;
+        this.note = note;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getAccountName() {
+        return accountName;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getPostedAt() {
+        return postedAt;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    @Override
+    public String toString() {
+        return id + "|" + accountName + "|" + amount + "|" + postedAt + "|" + note;
+    }
+}
